@@ -15,16 +15,15 @@ pkgs.mkShell {
     awscli2
     gcc
     gnumake
-    nodePackages.npm
-    nodePackages.typescript
-    vitejs
-    wrangler
-     nodejs_22
+    nodejs_22
     pkg-config
     python3
+    vitejs
+    wrangler
   ]);
 
   shellHook = ''
+    export PATH="$PWD/node_modules/.bin:$PATH"
     export LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath sfpiLibs}:$LD_LIBRARY_PATH
   '';
 }
