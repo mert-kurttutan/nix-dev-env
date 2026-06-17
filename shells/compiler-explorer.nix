@@ -17,9 +17,9 @@ pkgs.mkShell {
     gnumake
     nodePackages.npm
     nodePackages.typescript
-    nodePackages.vite
-    nodePackages.wrangler
-    nodejs_22
+    vitejs
+    wrangler
+     nodejs_22
     pkg-config
     python3
   ]);
