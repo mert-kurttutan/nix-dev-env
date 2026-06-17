@@ -14,6 +14,7 @@
       devShells.${system} = {
         default = (mkShell ./shells/common.nix).shell;
         compiler-explorer = mkShell ./shells/compiler-explorer.nix;
+        aws = mkShell ./shells/aws.nix;
       };
     };
 }
