@@ -8,6 +8,12 @@ Use a shell from any directory with the GitHub flake URL:
 nix develop github:mert-kurttutan/nix-dev-env#compiler-explorer
 ```
 
+Use the Compiler Explorer infrastructure shell:
+
+```bash
+nix develop github:mert-kurttutan/nix-dev-env#compiler-explorer-infra
+```
+
 Use the AWS-only shell:
 
 ```bash
