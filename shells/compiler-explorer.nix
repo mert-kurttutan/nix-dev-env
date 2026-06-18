@@ -2,16 +2,9 @@
 
 let
   common = import ./common.nix { inherit pkgs; };
-  sfpiLibs = with pkgs; [
-    gmp
-    libmpc
-    mpfr
-    zlib
-    zstd
-  ];
 in
 pkgs.mkShell {
-  packages = common.packages ++ sfpiLibs ++ (with pkgs; [
+  packages = common.packages ++ (with pkgs; [
     awscli2
     gcc
     gnumake
@@ -24,6 +17,5 @@ pkgs.mkShell {
 
   shellHook = ''
     export PATH="$PWD/node_modules/.bin:$PATH"
-    export LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath sfpiLibs}:$LD_LIBRARY_PATH
   '';
 }
