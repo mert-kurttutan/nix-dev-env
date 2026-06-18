@@ -5,14 +5,12 @@ let
 in
 pkgs.mkShell {
   packages = common.packages ++ (with pkgs; [
-    awscli2
     gcc
     gnumake
     nodejs_22
     pkg-config
     python3
     vitejs
-    wrangler
   ]);
 
   shellHook = ''
