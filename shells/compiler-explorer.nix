@@ -5,9 +5,9 @@ let
 in
 pkgs.mkShell {
   packages = common.packages ++ (with pkgs; [
+    fnm
     gcc
     gnumake
-    nodejs_22
     pkg-config
     python3
     vitejs
