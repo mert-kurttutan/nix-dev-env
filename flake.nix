@@ -13,13 +13,14 @@
         config.allowUnfreePredicate =
           pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "packer" ];
       };
-      mkShell = file: import file { inherit pkgs; };
+      sfpi = pkgs.callPackage ./nix/sfpi.nix { };
     in {
       devShells.${system} = {
-        default = (mkShell ./shells/common.nix).shell;
-        compiler-explorer = mkShell ./shells/compiler-explorer.nix;
-        compiler-explorer-infra = mkShell ./shells/compiler-explorer-infra.nix;
-        aws = mkShell ./shells/aws.nix;
+        default = (import ./shells/common.nix { inherit pkgs; }).shell;
+        compiler-explorer = import ./shells/compiler-explorer.nix { inherit pkgs; };
+        compiler-explorer-infra = import ./shells/compiler-explorer-infra.nix { inherit pkgs; };
+        aws = import ./shells/aws.nix { inherit pkgs; };
+        tt-metal = import ./shells/tt-metal.nix { inherit pkgs sfpi; };
       };
 
       formatter.${system} = pkgs.nixfmt-rfc-style;
