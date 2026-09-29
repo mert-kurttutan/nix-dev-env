@@ -20,6 +20,12 @@ Use the AWS-only shell:
 nix develop github:mert-kurttutan/nix-dev-env#aws
 ```
 
+Use the TT-Metal development shell:
+
+```bash
+nix develop github:mert-kurttutan/nix-dev-env#tt-metal
+```
+
 If flakes are not enabled by default on the machine:
 
 ```bash
